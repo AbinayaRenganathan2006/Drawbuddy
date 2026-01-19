@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kids Drawing Zone</title>
+    
+    <style>
+        body{
+            margin:0;
+            font-family: Arial, Helvetica, sans-serif;
+            background: linear-gradient(45deg,#ff9a9e,#fad0c4);
+            text-align: center;
+        }
+        h1{
+            margin-top: 40px;
+            font-size: 45px;
+            color:#ffffff;
+            text-shadow: 2px 2px 5px rgba(0,0,0,0.3);
+        }
+        .container{
+            margin-top: 50px;
+        }
+        .btn{
+            padding:15px 30px;
+            font-size: 20px;
+            border:none;
+            border-radius: 10px;
+            background: #ff6f61;
+            color:white;
+            cursor:pointer;
+            transition:0.3s;
+        }
+        .btn:hover{
+            background: #ff4d4d;
+            transform:scale(1.05);
+        }
+        .doodle-text{
+            font-family:'Gloria Hallelujah',cursive;
+            font-size:60px;
+            color:#ffffff;
+            text-shadow: 
+               3px 3px 0 #ff6f61,
+               -3px -3px 0 #ffb347,
+               3px -3px 0 #ffcc33,
+               -3px 3px 0 #ff6f91;
+            margin-top: 40px;
+        }
+    </style>
+</head>
+<body>
+    <h1 class="doodle-text">Welcome Kids! Let's Draw!</h1>
+    <div class="container">
+        <button class="btn" onclick="startDrawing()">Start Drawing</button>
+       <div id="drawArea" style="display:none;margin-top:40px;justify-content: center;gap:30px">
+          <canvas id="myCanvas" width="800" height="600"
+            style="border:4px dashed #fff;background:white;border-radius:20px;">
+          </canvas>
+          <div class="toolbox" 
+            style="display: flex;flex-direction: column;gap:20px;align-items: center;">
+              <h3 style="color: white;">Colors</h3>
+              <div class="colors">
+                  <div class="color" style="background: red;" onclick="setColor('red')"></div>
+                  <div class="color" style="background: blue;" onclick="setColor('blue')"></div>
+                  <div class="color" style="background: yellow;" onclick="setColor('yellow')"></div>
+                  <div class="color" style="background: green;" onclick="setColor('green')"></div>
+                  <div class="color" style="background: black;" onclick="setColor('black')"></div>
+                </div>
+                <h3 style="color:white;">Brush Size</h3>
+                <input type="range" min="2" max="30" value="5"
+                    id="brushSize" oninput="changeBrushSize(this.value)">
+                <button class="btn" style="background:#444;" onclick="eraser()">Eraser</button>
+                <button class="btn" onclick="clearCanvas()">Clear</button>
+                <button class="btn" onclick="saveImage()">Save</button>
+                <h3 style="color:white;">Stickers</h3>
+                <div>
+                    <span class="sticker" onclick="addSticker('⭐')">⭐</span>
+                    <span class="sticker" onclick="addSticker('❤️')">❤️</span>
+                    <span class="sticker" onclick="addSticker('😊')">😊</span>
+                    <span class="sticker" onclick="addSticker('🌈')">🌈</span>
+                    <span class="sticker" onclick="addSticker('✨')">✨</span>
+                </div>
+            </div>
+        </div>
+        <br><br>
+    </div>  
+    <script src="script.js"></script>  
+</body>
+</html>
